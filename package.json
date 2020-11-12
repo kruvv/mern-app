@@ -1,0 +1,25 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "description": "Mern stack",
+  "main": "app.js",
+  "scripts": {
+    "srart": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": "http://github.com/kruvv/mern-app.git",
+  "author": "Viktor Krupkin <kruvv@mail.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.13"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
