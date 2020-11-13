@@ -4,8 +4,10 @@
   "description": "Mern stack",
   "main": "app.js",
   "scripts": {
-    "srart": "node app.js",
-    "server": "nodemon app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "yarn start --prefix client",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "repository": "http://github.com/kruvv/mern-app.git",
   "author": "Viktor Krupkin <kruvv@mail.ru>",
