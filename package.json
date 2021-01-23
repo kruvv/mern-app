@@ -1,4 +1,4 @@
-{
+ {
   "name": "mern-app",
   "version": "1.0.0",
   "description": "Mern stack",
@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
-    "client": "yarn start --prefix client",
+    "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "repository": "http://github.com/kruvv/mern-app.git",
