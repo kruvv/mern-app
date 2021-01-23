@@ -1,5 +1,5 @@
 {
     "port": 5000,
     "jwtSecret": "Viktor web developer",
-    "mongoUri": "mongodb://kruvv:1qaz2wsx@cluster0.lce5y.mongodb.net/app?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://kruvv:1qaz2wsx@cluster0.lce5y.mongodb.net/app?retryWrites=true&w=majority"
 }
