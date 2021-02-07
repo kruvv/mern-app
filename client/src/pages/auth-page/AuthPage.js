@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useHttp } from '../../hooks/http.hooks';
+import React, { useEffect, useState, useContext } from 'react';
+import { useHttp } from '../../hooks/http.hook';
+import { useMessage } from '../../hooks/message.hook';
+import  { AuthContext } from '../../context/AuthContext'
 import './AuthStyles.css';
 
 export const AuthPage = () => {
 
-  const {loading, error, request} = useHttp();
+  const auth = useContext(AuthContext);
+  const message = useMessage();
+  const {loading, error, request, clearError} = useHttp();
 
   const [form, setForm] = useState({
-      email:"",
-      password:""
+      email: "",
+      password: ""
   });
 
   useEffect(() => {
-
-  }, [error]);
+    message(error);
+    clearError();
+  }, [error, message, clearError]);
 
   /**
    * changeHandler - обрабатывает поля формы в зависимости от поля name.
@@ -27,10 +32,25 @@ export const AuthPage = () => {
     });
   }
 
+  /**
+   * registerHandler - обработчик регистрации нового пользователя
+   */
   const registerHandler = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', {...form});
+      message(data.message);
+    } catch (error) {
+      // Обработчик не нужен, обработка уже есть в хуке useHttp.
+    }
+  }
 
+  /**
+   *  loginHandler - обработчик входа в систему при вводе логина и пароля
+   */
+  const loginHandler = async () => {
+    try {
+      const data = await request('/api/auth/login', 'POST', {...form});
+      auth.login(data.token, data.userId);
     } catch (error) {
       // Обработчик не нужен, обработка уже есть в хуке useHttp.
     }
@@ -71,6 +91,7 @@ export const AuthPage = () => {
                 <div className="card-action">
                   <button
                     className="btn yellow darken-4"
+                    onClick={loginHandler}
                     disabled={loading}
                   >
                     Войти
