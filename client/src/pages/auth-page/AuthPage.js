@@ -15,10 +15,20 @@ export const AuthPage = () => {
       password: ""
   });
 
+  /**
+   * Обработчик ошибок
+   */
   useEffect(() => {
     message(error);
     clearError();
   }, [error, message, clearError]);
+
+  /**
+   * Делает поля формы активными
+   */
+  useEffect(() => {
+    window.M.updateTextFields();
+  }, []);
 
   /**
    * changeHandler - обрабатывает поля формы в зависимости от поля name.
