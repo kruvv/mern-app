@@ -1,3 +1,3 @@
 # MERN-APP
 
-Небольшое приложение(сайт) разработанное на технологии MERN (Mongo, Express, React, Node)
+Не большое приложение(сайт) разработанное по технологии MERN (Mongo, Express, React, Node)
