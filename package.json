@@ -7,8 +7,8 @@
     "start": "cross-env NODE_ENV=production node app.js",
     "server": "nodemon app.js",
     "client": "yarn --cwd client start",
-    "client:install": "yarn install --cwd client",
-    "client:build": "yarn build --cwd client",
+    "client:install": "yarn --cwd client install",
+    "client:build": "yarn --cwd client build",
     "dev": "cross-env NODE_ENV=development concurrently \"yarn server\" \"yarn client\""
   },
   "repository": "http://github.com/kruvv/mern-app.git",
